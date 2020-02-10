@@ -6,11 +6,21 @@
 /*   By: joockim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:00:23 by joockim           #+#    #+#             */
-/*   Updated: 2020/02/10 18:52:52 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/10 19:27:42 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+typedef struct		s_map_info
+{
+	int				max_row;
+	int				max_col;
+	int				row;
+	int				col;
+	int				val;
+	char			word[3]; /*빈문자 장애물 마킹*/
+}					t_map_info;
 
 void	ft_putchar(char a)
 {
@@ -39,10 +49,10 @@ void	print_map(int **map, t_map_info info)
 	int j;
 
 	i = 0;
-	while (i <= max_col)
+	while (i <= info.max_col)
 	{
 		j = 0;
-		while (j <= max_row)
+		while (j <= info.max_row)
 		{
 			if (map[i][j] == 0)
 				ft_putchar(info.word[1]);
