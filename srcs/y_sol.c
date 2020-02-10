@@ -6,7 +6,7 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/10 20:28:06 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:29:38 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,6 @@ int main(void)
 	st.word[1] = 'o';
 	st.word[2] = 'x';
 	dynamic(ar, &st);
-	for(int i=0;i<9;i++)
-	{
-		for(int j=0;j<10;j++)
-			printf("%d ",ar[i][j]);
-		printf("\n");
-	}
 	print_map(ar, st);
 	return (0);
 }
