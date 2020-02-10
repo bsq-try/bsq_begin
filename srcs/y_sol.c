@@ -6,12 +6,18 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/10 19:19:51 by youlee           ###   ########.fr       */
+/*   Updated: 2020/02/10 20:28:06 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_bsq.h"
+#include "../includes/ft_bsq.h"
 #include <stdio.h>
+void	ft_putchar(char a);
+
+int		box_check(int i, int j, t_map_info info);
+
+void	print_map(int (*map)[10], t_map_info info);
+
 void	checkmax(int row, int col, int val, t_map_info *info)
 {
 	if (val > info -> val)
@@ -20,7 +26,6 @@ void	checkmax(int row, int col, int val, t_map_info *info)
 		info -> col = col;
 		info -> val = val;
 	}
-	printf("info.val : %d\n",info -> val);
 }
 
 int		minn(int a,int b)
@@ -45,41 +50,43 @@ void	dynamic(int (*map)[10], t_map_info *info)
 			if (map[idx][idx2] != 0)
 			{
 				map[idx][idx2] = minn(map[idx-1][idx2], map[idx][idx2-1]);
-				map[idx][idx2] = minn(map[idx][idx2] , map[idx-1][idx2-1]);
+				map[idx][idx2] = minn(map[idx][idx2], map[idx-1][idx2-1]);
 				map[idx][idx2]++;
 			}
 			checkmax(idx, idx2, map[idx][idx2], info);
 			idx2++;
 		}
-		idx2 = 0;
+		idx2 = 1;
 		idx++;
 	}
 }
+
 int main(void)
 {
-	int ar[10][10] = {
+	int ar[9][10] = {
+	{0,1,1,1,1,1,1,1,1,1},
+	{1,1,1,1,0,1,1,1,1,1},
 	{1,1,1,1,1,1,1,1,1,1},
+	{1,1,1,1,1,1,0,1,1,1},
 	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
+	{1,1,0,1,1,1,1,1,1,1},
+	{1,1,1,1,1,1,0,1,1,1},
 	{1,1,1,1,1,1,1,1,1,1},
 	{1,0,0,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1}	
 	};
 	t_map_info st;
-	st.max_row = 10;
+	st.max_row = 9;
 	st.max_col = 10;
+	st.word[0] = '.';
+	st.word[1] = 'o';
+	st.word[2] = 'x';
 	dynamic(ar, &st);
-	for(int i=0;i<10;i++)
+	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<10;j++)
-		{
 			printf("%d ",ar[i][j]);
-		}
 		printf("\n");
 	}
-	printf("st val : %d\n st row : %d\n st col : %d\n",st.val,st.row,st.col);
+	print_map(ar, st);
+	return (0);
 }
