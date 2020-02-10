@@ -6,17 +6,11 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/10 20:32:22 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:59:00 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_bsq.h"
-
-void	ft_putchar(char a);
-
-int		box_check(int i, int j, t_map_info info);
-
-void	print_map(int (*map)[10], t_map_info info);
 
 void	checkmax(int row, int col, int val, t_map_info *info)
 {
@@ -59,28 +53,4 @@ void	dynamic(int (*map)[10], t_map_info *info)
 		idx2 = 1;
 		idx++;
 	}
-}
-
-int main(void)
-{
-	int ar[9][10] = {
-	{0,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,0,1,1,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,0,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,1,0,1,1,1,1,1,1,1},
-	{1,1,1,1,1,1,0,1,1,1},
-	{1,1,1,1,1,1,1,1,1,1},
-	{1,0,0,1,1,1,1,1,1,1},
-	};
-	t_map_info st;
-	st.max_row = 9;
-	st.max_col = 10;
-	st.word[0] = '.';
-	st.word[1] = 'o';
-	st.word[2] = 'x';
-	dynamic(ar, &st);
-	print_map(ar, st);
-	return (0);
 }

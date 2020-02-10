@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   j_free.c                                           :+:      :+:    :+:   */
+/*   j_main.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junkang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 18:37:06 by junkang           #+#    #+#             */
-/*   Updated: 2020/02/10 20:58:29 by junkang          ###   ########.fr       */
+/*   Created: 2020/02/10 20:44:25 by junkang           #+#    #+#             */
+/*   Updated: 2020/02/10 20:59:11 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_bsq.h"
+#include "../includes/ft_bsq.h"
 
-void	j_free(int **map, t_map_info info)
+int main(void)
 {
-	int	i;
+	t_map_int_info	info;
+	int				i;
+	int				**map;
 
-	i = 0;
-	while (i < info.max_row)
+	i = 1;
+	while (i < argc)
 	{
-		free(map[i]);
+		map = reader_control(argv[i], &info);
+		dynamic(map, &info);
+		print_map(map, info);
+		j_free(map, info);
 		i++;
 	}
-	free(map);
+	return (0);
 }
