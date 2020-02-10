@@ -6,12 +6,12 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/10 20:29:38 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/10 20:32:22 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_bsq.h"
-#include <stdio.h>
+
 void	ft_putchar(char a);
 
 int		box_check(int i, int j, t_map_info info);
