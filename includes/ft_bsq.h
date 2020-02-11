@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:32:21 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/10 20:59:57 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/11 18:49:58 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,13 @@ typedef struct		s_map_info
 	int				val;
 	char			word[3]; /*빈문자 장애물 마킹*/
 }					t_map_info;
+
+char				*partial(char *str, unsigned int start, unsigned int end);
+
+int					ft_len(char *str);
+int					char_check(char *str);
+int					ft_atoi(char *b_str, int len);
+int					first_line(char *str, t_map_info *info);
+
 
 #endif
