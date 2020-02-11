@@ -6,19 +6,10 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 17:04:50 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/11 20:24:17 by youlee           ###   ########.fr       */
+/*   Updated: 2020/02/11 20:27:06 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 //char *map 을 int ** map 으로 바꾸어주는 작업.
-void	free_cmap(char **cmap, t_map_info info)
-{
-	int index;
-
-	index = 0;
-	while (index < info.max_row)
-		free(cmap[index++]);
-	free(cmap);
-}
 
 int	**char_to_int_map(char *cmap, t_map_info *info)
 {
@@ -45,6 +36,6 @@ int	**char_to_int_map(char *cmap, t_map_info *info)
 		}
 		index++;
 	}
-	free_cmap(cmap, info);
+	free(cmap);
 	return (imap);
 }
