@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:22:54 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/11 20:04:33 by sseo             ###   ########.fr       */
+/*   Updated: 2020/02/11 20:32:50 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ unsigned int		get_total_len(char *file_name)
 	return (cnt);
 }
 
-char			*make_one_d_array(char *file_name, unsigned int len)
+char				*make_one_d_array(char *file_name, unsigned int len)
 {
 	int				fd;
 	unsigned int	idx;
@@ -63,7 +63,30 @@ char			*make_one_d_array(char *file_name, unsigned int len)
 	return (out);
 }
 
-char			*one_d_array_f(char *file_name, t_map_info *info)
+int					check_board(char *board, t_map_info *info)
+{
+	int				idx;
+	int				row_cnt;
+
+	idx = 0;
+	row_cnt = 0;
+	while (board[idx] != 0)
+	{
+		if (idx % info->col == 0 && idx != 0)
+		{
+			if (board[idx] != '\n')
+				return (1);
+			else
+				row_cnt++;
+		}
+		idx++;
+	}
+	if (info->row != row_cnt)
+		return (2);
+	return (0);
+}
+
+char				*one_d_array_f(char *file_name, t_map_info *info)
 {
 	char			*temp;
 	char			*map_head;
@@ -78,7 +101,7 @@ char			*one_d_array_f(char *file_name, t_map_info *info)
 	map_left = partial(temp, devided_point + 1, len);
 	info->max_col = (int)get_len_to_sep(map_left, '\n', 0);
 	free(temp);
-	if (first_line(map_head, info))
+	if (first_line(map_head, info) || check_board(map_left, info))
 	{
 		free(map_head);
 		map_left[0] = 0;
