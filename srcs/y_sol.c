@@ -6,7 +6,7 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/10 21:04:42 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/11 20:40:34 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		minn(int a, int b)
 		return (a);
 }
 
-void	dynamic(int (*map)[10], t_map_info *info)
+void	dynamic(int **map, t_map_info *info)
 {
 	int idx;
 	int idx2;
