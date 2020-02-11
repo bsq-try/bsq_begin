@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 18:23:19 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/11 21:16:09 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/11 21:22:45 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ unsigned int	get_len_to_sep(char *str, char sep, unsigned int start)
 	return (idx);
 }
 
-char		*partial(char *str, unsigned int start, unsigned int end)
+char			*partial(char *str, unsigned int start, unsigned int end)
 {
 	char			*out;
 	unsigned int	idx;
