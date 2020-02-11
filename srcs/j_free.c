@@ -6,11 +6,11 @@
 /*   By: junkang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:37:06 by junkang           #+#    #+#             */
-/*   Updated: 2020/02/10 20:58:29 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/11 21:15:43 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_bsq.h"
+#include "../includes/ft_bsq.h"
 
 void	j_free(int **map, t_map_info info)
 {
