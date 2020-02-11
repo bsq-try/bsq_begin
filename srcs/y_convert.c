@@ -6,9 +6,10 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 17:04:50 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/11 20:27:06 by youlee           ###   ########.fr       */
+/*   Updated: 2020/02/11 20:30:59 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 //char *map 을 int ** map 으로 바꾸어주는 작업.
 
 int	**char_to_int_map(char *cmap, t_map_info *info)
@@ -19,17 +20,17 @@ int	**char_to_int_map(char *cmap, t_map_info *info)
 	int **imap;
 
 	index3 = 0;
-	imap = (int **)malloc(sizeof(int *) * (info -> max_row));
+	imap = (int **)malloc(sizeof(int *) * (info->max_row));
 	index = 0;
-	while (index < info -> max_row)
+	while (index < info->max_row)
 	{
 		index2 = 0;
-		imap[index] = (int *)malloc(sizeof(int *) * (info -> max_col));
-		while (index2 < info -> max_col)
+		imap[index] = (int *)malloc(sizeof(int *) * (info->max_col));
+		while (index2 < info->max_col)
 		{
-			if (cmap[index][index2] == info -> word[0])
+			if (cmap[index][index2] == info->word[0])
 				imap[index3] = 1;
-			else if(cmap[index][index2] == info -> word[1])
+			else if (cmap[index][index2] == info->word[1])
 				imap[index3] = 0;
 			index2++;
 			index3++;
