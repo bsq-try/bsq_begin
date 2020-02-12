@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:22:54 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/12 15:40:47 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/12 16:17:18 by joockim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int					check_board(char *board, t_map_info *info)
 {
 	int				idx;
 	int				row_cnt;
-	char			test;
 
 	idx = 0;
 	row_cnt = 0;
