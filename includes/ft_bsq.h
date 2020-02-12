@@ -6,17 +6,17 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:32:21 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/12 14:30:23 by sseo             ###   ########.fr       */
+/*   Updated: 2020/02/12 15:42:41 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_BSQ_H
 # define FT_BSQ_H
 
-#include			<fcntl.h>
-#include			<unistd.h>
-#include			<stdlib.h>
-#include			<stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct	s_map_info
 {
@@ -55,5 +55,8 @@ int				**char_to_int_map(char *cmap, t_map_info *info, int i, int j);
 void			checkmax(int row, int col, int val, t_map_info *info);
 int				minn(int a, int b);
 void			dynamic(int **map, t_map_info *info);
+/*	j_main.c	*/
+char			*newline_to_null(char *str);
+int				is_argv(char *file_name);
 
 #endif

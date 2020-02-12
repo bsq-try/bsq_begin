@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:22:54 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/12 13:18:37 by sseo             ###   ########.fr       */
+/*   Updated: 2020/02/12 15:40:47 by junkang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ char				*one_d_array_f(char *file_name, t_map_info *info)
 	unsigned int	devided_point;
 	unsigned int	len;
 
-	len = get_total_len(file_name); /*열기 실패 or \n 2개 미만 -> 0 */
-	temp = make_one_d_array(file_name, len); /*동일 조건 -> [0] = 0 */
-	devided_point = get_len_to_sep(temp, '\n', 0);  /* \n 없을 때 0 */
+	len = get_total_len(file_name);
+	temp = make_one_d_array(file_name, len);
+	devided_point = get_len_to_sep(temp, '\n', 0);
 	map_head = partial(temp, 0, devided_point);
 	map_left = partial(temp, devided_point + 1, len);
 	info->max_col = (int)get_len_to_sep(map_left, '\n', 0);
