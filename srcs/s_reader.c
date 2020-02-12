@@ -6,7 +6,7 @@
 /*   By: sseo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:22:54 by sseo              #+#    #+#             */
-/*   Updated: 2020/02/11 21:54:39 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/12 13:18:37 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ char				*make_one_d_array(char *file_name, unsigned int len)
 	unsigned int	idx;
 	char			*out;
 	char			a;
-	unsigned int	col_cnt;
 
 	idx = 0;
 	out = (char *)malloc(sizeof(char) * (len + 1));
@@ -67,12 +66,13 @@ int					check_board(char *board, t_map_info *info)
 {
 	int				idx;
 	int				row_cnt;
+	char			test;
 
 	idx = 0;
 	row_cnt = 0;
 	while (board[idx] != 0)
 	{
-		if (idx % info->col == 0 && idx != 0)
+		if ((idx + 1) % (info->max_col + 1) == 0 && idx != 0)
 		{
 			if (board[idx] != '\n')
 				return (1);
@@ -81,7 +81,7 @@ int					check_board(char *board, t_map_info *info)
 		}
 		idx++;
 	}
-	if (info->row != row_cnt)
+	if (info->max_row != row_cnt)
 		return (2);
 	return (0);
 }
@@ -94,9 +94,9 @@ char				*one_d_array_f(char *file_name, t_map_info *info)
 	unsigned int	devided_point;
 	unsigned int	len;
 
-	len = get_total_len(file_name);
-	temp = make_one_d_array(file_name, len);
-	devided_point = get_len_to_sep(temp, '\n', 0);
+	len = get_total_len(file_name); /*열기 실패 or \n 2개 미만 -> 0 */
+	temp = make_one_d_array(file_name, len); /*동일 조건 -> [0] = 0 */
+	devided_point = get_len_to_sep(temp, '\n', 0);  /* \n 없을 때 0 */
 	map_head = partial(temp, 0, devided_point);
 	map_left = partial(temp, devided_point + 1, len);
 	info->max_col = (int)get_len_to_sep(map_left, '\n', 0);

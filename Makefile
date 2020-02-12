@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS =  -Werror -Wall -Wextra
-NAME = bsq
+NAME = BSQ
 SRCS = $(addprefix ./srcs/ ,)
 OBJS = $(SRCS:.c=.o)
 

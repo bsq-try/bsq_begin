@@ -6,18 +6,18 @@
 /*   By: junkang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 18:37:06 by junkang           #+#    #+#             */
-/*   Updated: 2020/02/11 21:15:43 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/12 07:04:59 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_bsq.h"
 
-void	j_free(int **map, t_map_info info)
+void	j_free(int **map, int max_row)
 {
 	int	i;
 
 	i = 0;
-	while (i < info.max_row)
+	while (i < max_row)
 	{
 		free(map[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: youlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:34:44 by youlee            #+#    #+#             */
-/*   Updated: 2020/02/11 21:48:09 by junkang          ###   ########.fr       */
+/*   Updated: 2020/02/12 14:04:10 by sseo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	dynamic(int **map, t_map_info *info)
 	{
 		while (idx2 < info->max_col)
 		{
-			if (map[idx][idx2] != 0)
+			if (map[idx][idx2] !=  0)
 			{
 				map[idx][idx2] = minn(map[idx - 1][idx2], map[idx][idx2 - 1]);
 				map[idx][idx2] = minn(map[idx][idx2], map[idx - 1][idx2 - 1]);
